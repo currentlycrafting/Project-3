@@ -3,121 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Piece Treasure Map</title>
+  <title>Hello World</title>
   <style>
     body {
-      font-family: 'Pirata One', cursive, sans-serif;
+      font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #f8f4e3;
-      color: #4b2e06;
+      background-color: #f0f0f0;
+      color: #333;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     h1 {
-      color: #8b0000;
-      text-shadow: 3px 3px #ffd700;
-      font-size: 3.5rem;
-      margin: 20px 0;
-    }
-
-    #money-counter {
-      font-size: 1.5rem;
-      margin: 10px auto;
-      padding: 10px 20px;
-      background-color: #ffd700;
-      border: 2px solid #4b2e06;
-      border-radius: 10px;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
-      display: inline-block;
-      color: #4b2e06;
-    }
-
-    #map-container {
-      position: relative;
-      width: 90%;
-      max-width: 900px;
-      margin: 20px auto;
-      border: 15px solid #8b4513;
-      box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
-      background-color: #fff8dc;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    #map-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: sepia(1) contrast(1.1) brightness(0.95);
-    }
-
-    #description {
-      font-size: 1.2rem;
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #fff8dc;
-      border: 2px solid #4b2e06;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
-      border-radius: 8px;
-      width: 90%;
-      max-width: 800px;
-      margin: 20px auto;
-      color: #4b2e06;
-      line-height: 1.6;
-    }
-
-    footer {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      font-style: italic;
-    }
-
-    footer a {
-      color: #8b0000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
+      color: #007bff;
+      font-size: 3rem;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>One Piece Treasure Map</h1>
-  <div id="money-counter" aria-live="polite">
-    Gold Collected: <span id="gold-amount">0</span>
-  </div>
-  <div id="map-container">
-    <img src="onepiecemap.png" alt="Treasure map inspired by Saint Paul neighborhoods" />
-  </div>
-  <div id="description">
-    <p>Wealth, fame, power. Gold Roger, the King of the Pirates, attained this and everything else the world had to offer. His dying words drove countless men to the seas:</p>
-    <blockquote>
-      <em>"You want my treasure? You can have it. I left everything I gathered together in one place, now you just have to find it."</em>
-    </blockquote>
-    <p>These words lured men to the Grand Line in pursuit of dreams greater than they'd ever dared to imagine. This is the time known as the great pirate era.</p>
-  </div>
-  <footer>
-    <p>Follow me on Twitch: <a href="https://www.twitch.tv/Subeir_" target="_blank" rel="noopener">Subeir_</a></p>
-  </footer>
-  <script>
-    // Gold counter simulation with a cap
-    let goldAmount = 0; // Current gold amount
-    const targetGold = 1000; // Target amount of gold
-    const goldElement = document.getElementById('gold-amount');
-
-    const updateGold = () => {
-      if (goldAmount < targetGold) {
-        const increment = Math.floor(Math.random() * 6) + 1; // Random gold increment
-        goldAmount = Math.min(goldAmount + increment, targetGold); // Cap at targetGold
-        goldElement.textContent = goldAmount;
-      }
-    };
-
-    setInterval(updateGold, 1000);
-  </script>
+  <h1>Hello, World!</h1>
 </body>
 </html>
