@@ -6,7 +6,7 @@
   <title>One Piece Treasure Map</title>
   <style>
     body {
-      font-family: 'Pirata One', cursive;
+      font-family: 'Pirata One', cursive, sans-serif;
       text-align: center;
       background-color: #f8f4e3;
       color: #4b2e06;
@@ -17,18 +17,18 @@
     h1 {
       color: #8b0000;
       text-shadow: 3px 3px #ffd700;
-      font-size: 4rem;
+      font-size: 3.5rem;
       margin: 20px 0;
     }
 
     #money-counter {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       margin: 10px auto;
       padding: 10px 20px;
       background-color: #ffd700;
-      border: 3px solid #4b2e06;
-      border-radius: 15px;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+      border: 2px solid #4b2e06;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
       display: inline-block;
       color: #4b2e06;
     }
@@ -38,11 +38,18 @@
       width: 90%;
       max-width: 900px;
       margin: 20px auto;
-      border: 20px solid #8b4513;
-      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+      border: 15px solid #8b4513;
+      box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
       background-color: #fff8dc;
-      border-radius: 15px;
+      border-radius: 10px;
       overflow: hidden;
+    }
+
+    #map-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: sepia(1) contrast(1.1) brightness(0.95);
     }
 
     #description {
@@ -51,17 +58,18 @@
       padding: 10px;
       background-color: #fff8dc;
       border: 2px solid #4b2e06;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
       width: 90%;
       max-width: 800px;
       margin: 20px auto;
       color: #4b2e06;
+      line-height: 1.6;
     }
 
     footer {
       margin-top: 20px;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-style: italic;
     }
 
@@ -74,40 +82,42 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    /* Enhanced pirate-style border */
-    #map-container {
-      border: 20px solid #4b2e06;
-      border-image: url('https://upload.wikimedia.org/wikipedia/commons/2/23/Old_paper_texture.jpg') 30;
-    }
-
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>One Piece Treasure Map</h1>
-  <div id="money-counter">
+  <div id="money-counter" aria-live="polite">
     Gold Collected: <span id="gold-amount">0</span>
   </div>
   <div id="map-container">
-    <img src="onepiecemap.png" alt="Saint Paul Neighborhoods Map">
-    <div id="compass"></div>
+    <img src="onepiecemap.png" alt="Treasure map inspired by Saint Paul neighborhoods" />
   </div>
   <div id="description">
-    <p>Wealth, fame, power. Gold Roger, the King of the Pirates, attained this and everything else the world had to offer, and his dying words drove countless men to the seas. "You want my treasure? You can have it. I left everything I gathered together in one place, now you just have to find it". These words lured men to the Grand Line in pursuit of dreams greater than they'd ever dared to imagine. This is the time known as the great pirate era.</p>
+    <p>Wealth, fame, power. Gold Roger, the King of the Pirates, attained this and everything else the world had to offer. His dying words drove countless men to the seas:</p>
+    <blockquote>
+      <em>"You want my treasure? You can have it. I left everything I gathered together in one place, now you just have to find it."</em>
+    </blockquote>
+    <p>These words lured men to the Grand Line in pursuit of dreams greater than they'd ever dared to imagine. This is the time known as the great pirate era.</p>
   </div>
+  <footer>
+    <p>Follow me on Twitch: <a href="https://www.twitch.tv/Subeir_" target="_blank" rel="noopener">Subeir_</a></p>
+  </footer>
   <script>
-    // Simulate gold counter increment
-    let goldAmount = 0; // Current amount of gold
-    const setAmount = 1000; // Target amount of gold
-    const goldAmountElement = document.getElementById('gold-amount');
+    // Gold counter simulation with a cap
+    let goldAmount = 0; // Current gold amount
+    const targetGold = 1000; // Target amount of gold
+    const goldElement = document.getElementById('gold-amount');
 
-    setInterval(() => {
-        if (goldAmount < setAmount) {
-            goldAmount += Math.floor(Math.random() * 6) + 1;
-            goldAmountElement.textContent = goldAmount;
-        }
-    }, 1000);
+    const updateGold = () => {
+      if (goldAmount < targetGold) {
+        const increment = Math.floor(Math.random() * 6) + 1; // Random gold increment
+        goldAmount = Math.min(goldAmount + increment, targetGold); // Cap at targetGold
+        goldElement.textContent = goldAmount;
+      }
+    };
+
+    setInterval(updateGold, 1000);
   </script>
 </body>
 </html>
